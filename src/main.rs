@@ -10,8 +10,9 @@ fn main() {
         io::stdin()
             .read_line(&mut guess)
             .expect("Failed to read line");
-        // let guess: u32 = guess.trim().parse().expect("Please type a number!"); // crahses with the msg in expect
+        // let guess: u32 = guess.trim().parse().expect("Please type a number!"); // crashes with the msg in expect
         //Better error handling
+        //guess is shadowed .. an immutable var with a different type
         let guess: u32 = match guess.trim().parse() { // handling two Result variants
             Ok(num) => num,
             Err(_) => continue, //_ is a catchall value
@@ -26,5 +27,5 @@ fn main() {
                 }
         }
     }
-    //guess is shadowed .. an immutable var with a different type
+    
 }
